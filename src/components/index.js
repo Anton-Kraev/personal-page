@@ -1,5 +1,4 @@
 import About from './About';
-import Contacts from './Contacts';
 import Feedback from './Feedback.jsx';
 import Footer from './Footer';
 import Hero from './Hero';
@@ -9,7 +8,6 @@ import Projects from './Projects';
 
 export {
   About,
-  Contacts,
   Feedback,
   Footer,
   Hero,
