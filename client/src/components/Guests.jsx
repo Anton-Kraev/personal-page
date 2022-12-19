@@ -5,6 +5,7 @@ import {FormatQuote, KeyboardArrowLeft, KeyboardArrowRight} from "@mui/icons-mat
 import {contacts} from "../constants/contacts.jsx";
 import AddTestimonialModal from "./AddTestimonialModal.jsx";
 import {CSSTransition} from "react-transition-group";
+import useHttp from "../hooks/http.hook.js";
 
 //TODO: добавлять незначащий ноль
 function formatDate(date) {
@@ -23,24 +24,33 @@ Array.prototype.multiget = function () {
 
 //TODO: подсмотреть идеи, дата коммента внизу по центру мелким шрифтом, по бокам от заголовка бирюзовые линии, у боковых отзывов шрифт меньше
 const Guests = ({current}) => {
-  const [name, setName] = useState('');
-  const [text, setText] = useState('');
+  const get = useHttp();
+  const post = useHttp();
+
   const [open, setOpen] = useState(false);
-  const [comments, setComments] = useState([
-    {name: 'fdsfsdfds', text: 'fdsfdsfsddsadasdasdsadas', date: '12 432 46'},
-    {name: 'аавзьпьав', text: 'аавыавылрваьзрипбпавзищпащшь ыавьщ шпашвьщпа щш лазвылазщ ', date: '865 12 12'},
-    {name: 'аавзьпьав', text: 'аавыавылрваьзрипбпавзищпащшь ыавьщ шпашвьщпа щш лазвылазщ ', date: '094 324 3'},
-  ]);
+  const [comments, setComments] = useState([{name: '', text: '', date: ''}]);
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        const fetched = await get.request('/api/comments');
+        setComments(fetched);
+      } catch (e) {}
+    };
+    fetchComments();
+  }, [get.request]);
 
   const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
   const maxSteps = comments.length;
 
-  const addTestimonial = (name, text, date) => {
-    //TODO:тут отправить запрос, добавить дату коммента
-    setComments(prev => [{name: name, text: text, date: formatDate(date)}, ...prev]);
-    setActiveStep(0);
-    setOpen(false);
+  const addTestimonial = async (name, text, date) => {
+    try {
+      await post.request('/api/comments', 'POST', {name, text, date})
+      setComments(prev => [{name: name, text: text, date: formatDate(date)}, ...prev]);
+      setActiveStep(0);
+      setOpen(false);
+    } catch (e) {}
   }
 
   const handleNext = () => {
