@@ -3,6 +3,8 @@ import styles from "../style.js";
 import {Button, MobileStepper, useTheme} from "@mui/material";
 import {KeyboardArrowLeft, KeyboardArrowRight} from "@mui/icons-material";
 
+//TODO: диалог с добавлением отзыва
+//TODO: ограничение на максимальную длину комментария и имени
 const Feedback = () => {
   const [name, setName] = useState('');
   const [text, setText] = useState('');

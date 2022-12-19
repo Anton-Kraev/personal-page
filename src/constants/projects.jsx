@@ -1,20 +1,20 @@
-import {Link} from "@mui/icons-material";
+import {BurstMode, HomeWork, Link, Psychology, SmartToy} from "@mui/icons-material";
 import React from 'react';
-
+//TODO:добавить ссылки
 export const projects = [
   {
-    icon: <Link sx={{color: '#00f6ff', height: '200px', width: '200px'}}/>,
-    description: 'Участие в разработке мини-приложения для вк в качестве учебной практики',
-    link: '',
+    icon: <SmartToy sx={{color: '#00f6ff', height: '200px', width: '200px'}}/>,
+    description: 'Bot for group',
+    link: 'https://github.com/Anton-Kraev/vk-bot-bmstu',
   },
   {
-    icon: <Link sx={{color: '#00f6ff', height: '200px', width: '200px'}}/>,
-    description: 'Бот для группы(в процессе разработки)',
-    link: '',
+    icon: <BurstMode sx={{color: '#00f6ff', height: '200px', width: '200px'}}/>,
+    description: 'Streamlit app for conditional image generation',
+    link: 'https://github.com/Anton-Kraev/image-generation/tree/implementation',
   },
   {
-    icon: <Link sx={{color: '#00f6ff', height: '200px', width: '200px'}}/>,
-    description: 'Домашние задания',
-    link: '',
+    icon: <Psychology sx={{color: '#00f6ff', height: '200px', width: '200px'}}/>,
+    description: 'Participation in the development of a vk-app as a semester practice',
+    link: 'https://vk.com/app7794698',
   },
 ]

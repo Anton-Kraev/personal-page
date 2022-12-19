@@ -1,8 +1,10 @@
+//TODO: добавить пункт анимаций
 const styles = {
   boxWidth: "xl:max-w-[1280px] w-full",
 
-  heading2: "font-poppins font-semibold xs:text-[48px] text-[40px] text-white xs:leading-[66.8px] leading-[58.8px] w-full",
-  paragraph: "font-poppins font-normal text-dimWhite text-[22px] leading-[30.8px]",
+  heading: "font-poppins font-normal text-[28px] sm:text-[48px] md:text-[62px] lg:text-[78px] leading-[34px] sm:leading-[57px] md:leading-[74.8px] lg:leading-[86.8px] w-full",
+  heading2: "font-poppins font-semibold xs:text-[78px] text-[62px] text-white xs:leading-[86.8px] leading-[74.8px] w-full",
+  paragraph: "font-poppins font-normal text-dimWhite text-[25px] leading-[32.8px]",
 
   flexCenter: "flex justify-center items-center",
   flexStart: "flex justify-center items-start",
