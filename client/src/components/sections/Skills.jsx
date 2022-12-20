@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import styles from "../style.js";
-import {Build, Construction} from "@mui/icons-material";
-import {skills} from "../constants/skills.js";
+import styles from "../../style.js";
+import {Construction} from "@mui/icons-material";
+import {skills} from "../../constants/skills.js";
 import {Slider} from "@mui/material";
 import {CSSTransition} from "react-transition-group";
 

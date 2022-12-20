@@ -1,15 +1,20 @@
 import React, {useEffect, useState} from 'react';
-import styles from "../style.js";
-import {Button, IconButton, MobileStepper, useTheme} from "@mui/material";
+import styles from "../../style.js";
+import {IconButton, MobileStepper, useTheme} from "@mui/material";
 import {FormatQuote, KeyboardArrowLeft, KeyboardArrowRight} from "@mui/icons-material";
-import {contacts} from "../constants/contacts.jsx";
-import AddTestimonialModal from "./AddTestimonialModal.jsx";
+import {contacts} from "../../constants/contacts.jsx";
+import AddTestimonialModal from "../modals/AddTestimonialModal.jsx";
 import {CSSTransition} from "react-transition-group";
-import useHttp from "../hooks/http.hook.js";
+import useHttp from "../../hooks/http.hook.js";
 
-//TODO: добавлять незначащий ноль
 function formatDate(date) {
-  return `${date.getHours()}:${date.getMinutes()} ${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`
+  const year = date.getFullYear();
+  const month = date.getMonth() < 9 ? 0 + `${date.getMonth() + 1}` : date.getMonth() + 1;
+  const day = date.getDate() < 10 ? 0 + `${date.getDate()}` : date.getDate();
+  const hour = date.getHours() < 10 ? 0 + `${date.getHours()}` : date.getHours();
+  const minute = date.getMinutes() < 10 ? 0 + `${date.getMinutes()}` : date.getMinutes();
+
+  return `${hour}:${minute} ${day}.${month}.${year}`;
 }
 
 Array.prototype.multiget = function () {
@@ -22,8 +27,7 @@ Array.prototype.multiget = function () {
   return result;
 }
 
-//TODO: подсмотреть идеи, дата коммента внизу по центру мелким шрифтом, по бокам от заголовка бирюзовые линии, у боковых отзывов шрифт меньше
-const Guests = ({current}) => {
+const Feedback = ({current}) => {
   const get = useHttp();
   const post = useHttp();
 
@@ -34,7 +38,7 @@ const Guests = ({current}) => {
     const fetchComments = async () => {
       try {
         const fetched = await get.request('/api/comments');
-        setComments(fetched);
+        setComments(fetched.reverse());
       } catch (e) {}
     };
     fetchComments();
@@ -46,7 +50,7 @@ const Guests = ({current}) => {
 
   const addTestimonial = async (name, text, date) => {
     try {
-      await post.request('/api/comments', 'POST', {name, text, date})
+      await post.request('/api/comments', 'POST', {name: name, text: text, date: formatDate(date)})
       setComments(prev => [{name: name, text: text, date: formatDate(date)}, ...prev]);
       setActiveStep(0);
       setOpen(false);
@@ -62,7 +66,7 @@ const Guests = ({current}) => {
 
   const [startAnimation, setStartAnimation] = useState(false);
   useEffect(() => {
-    if (current === 'guests') {
+    if (current === 'feedback') {
       setStartAnimation(true);
     }
   }, [current])
@@ -214,4 +218,4 @@ const Guests = ({current}) => {
   )
 };
 
-export default Guests;
+export default Feedback;

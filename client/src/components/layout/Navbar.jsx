@@ -1,8 +1,8 @@
 import React, {useContext, useState} from 'react';
-import {navLinks} from "../constants/navLinks.js";
+import {navLinks} from "../../constants/navLinks.js";
 import {Close, Menu} from "@mui/icons-material";
 import {IconButton} from "@mui/material";
-import {PagesContext} from "../PagesProvider.jsx";
+import {PagesContext} from "../../providers/PagesProvider.jsx";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);

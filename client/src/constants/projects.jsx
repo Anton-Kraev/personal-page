@@ -1,6 +1,6 @@
-import {BurstMode, HomeWork, Link, Psychology, SmartToy} from "@mui/icons-material";
+import {BurstMode, Psychology, SmartToy} from "@mui/icons-material";
 import React from 'react';
-//TODO:добавить ссылки
+
 export const projects = [
   {
     icon: <SmartToy sx={{color: '#00f6ff', height: '200px', width: '200px'}}/>,

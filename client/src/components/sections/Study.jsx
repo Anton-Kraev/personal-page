@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import styles from "../style.js";
-import {Build, Circle, Feed, SafetyCheck, School} from "@mui/icons-material";
-import {study} from "../constants/study.js";
+import styles from "../../style.js";
+import {School} from "@mui/icons-material";
+import {study} from "../../constants/study.js";
 import {
   Step,
   StepConnector,
   stepConnectorClasses,
   StepContent,
-  StepIcon,
   StepLabel,
   Stepper,
   styled
