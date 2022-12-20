@@ -1,13 +1,12 @@
-import React, {useCallback, useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Feed} from "@mui/icons-material";
-import styles from "../style.js";
-import {features} from "../constants/features.js";
-import {PagesContext} from "../PagesProvider.jsx";
-import 'animate.css';
-import {CSSTransition, Transition} from "react-transition-group";
-import '../index.css'
+import styles from "../../style.js";
+import {features} from "../../constants/features.js";
+import {PagesContext} from "../../providers/PagesProvider.jsx";
+import '../../../node_modules/animate.css/animate.css';
+import {CSSTransition} from "react-transition-group";
+import '../../index.css'
 
-//TODO: хук для анимаций, мб переиспользуемый элемент с children для анимации, константы для пропсов в этот элемент
 const About = ({current}) => {
   const {currentPage, setCurrentPage} = useContext(PagesContext);
   setCurrentPage(current);

@@ -15,11 +15,6 @@ router.post('/', async (req, res) => {
   try {
     const {name, text, date} = req.body;
 
-    const exist = await Comment.findOne({date})
-    if (exist) {
-      res.status(400).json({message: 'Such a comment already exists'});
-    }
-
     const comment = new Comment({name, text, date});
     await comment.save();
 

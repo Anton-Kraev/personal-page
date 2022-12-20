@@ -1,18 +1,15 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import ReactFullpage from "@fullpage/react-fullpage";
-import Feedback from "./components/Feedback.jsx";
-import {About, Projects} from "./components/index.js";
-import Study from "./components/Study.jsx";
-import Skills from "./components/Skills.jsx";
-import Sidebar from "./components/Sidebar.jsx";
-import {PagesContext, PagesProvider} from "./PagesProvider";
-import usePagination from "@mui/material/usePagination";
-import Home from "./components/Home.jsx";
-import Guests from "./components/Guests.jsx";
-import Navbar from "./components/Navbar.jsx";
-import styles from "./style.js";
+import Study from "../sections/Study.jsx";
+import Skills from "../sections/Skills.jsx";
+import {PagesProvider} from "../../providers/PagesProvider.jsx";
+import Home from "../sections/Home.jsx";
+import Feedback from "../sections/Feedback.jsx";
+import Navbar from "./Navbar.jsx";
+import styles from "../../style.js";
+import Projects from "../sections/Projects.jsx";
+import About from "../sections/About.jsx";
 
-//TODO:убрать элемент guests и перенести все из него в feedback, вынести общие классы каждой секции
 const Fullpage = () => {
   return (
     <PagesProvider initialPage='hero'>
@@ -24,7 +21,7 @@ const Fullpage = () => {
       <ReactFullpage
         gplv3-license={true}
         scrollingSpeed={500}
-        anchors={['home', 'about', 'study', 'skills', 'projects', 'guests']}
+        anchors={['home', 'about', 'study', 'skills', 'projects', 'feedback']}
         onLeave={function (origin, destination, direction) {
           console.log(destination)
         }}
@@ -48,7 +45,7 @@ const Fullpage = () => {
                 <Projects current={current}/>
               </div>
               <div className='section bg-primary overflow-x-hidden'>
-                <Guests current={current}/>
+                <Feedback current={current}/>
               </div>
             </ReactFullpage.Wrapper>
           );

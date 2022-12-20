@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import styles from "../style.js";
-import {projects} from "../constants/projects.jsx";
+import styles from "../../style.js";
+import {projects} from "../../constants/projects.jsx";
 import {Bolt} from "@mui/icons-material";
 import {CSSTransition} from "react-transition-group";
-import 'animate.css';
+import '../../../node_modules/animate.css/animate.css';
 
-//TODO: надо ли импортировать css везде?
 const Projects = ({current}) => {
   const [startAnimation, setStartAnimation] = useState(false);
   useEffect(() => {

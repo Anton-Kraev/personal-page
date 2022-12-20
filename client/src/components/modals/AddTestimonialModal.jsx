@@ -1,13 +1,7 @@
 import React, {useState} from 'react';
 import {
-  alpha,
-  Button,
   Dialog,
-  DialogActions,
   DialogContent,
-  DialogContentText,
-  DialogTitle, InputBase, styled,
-  TextField
 } from "@mui/material";
 
 const AddTestimonialModal = ({open, setOpen, addTestimonial}) => {
