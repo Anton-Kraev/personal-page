@@ -14,7 +14,7 @@ const Home = ({current}) => {
 
   return (
     <div
-      className='flex justify-center items-center h-[100vh] overflow-hidden brightness-75 sm:brightness-100 bg-center bg-cover bg-[url(../src/assets/photo.jpg)] sm:bg-none sm:bg-primary'>
+      className='flex justify-center items-center h-[100vh] overflow-hidden brightness-75 sm:brightness-100 bg-center bg-cover bg-[url(../../assets/photo.jpg)] sm:bg-none sm:bg-primary'>
       <div className='sm:container flex flex-col justify-between h-[80%]'>
         <div className='flex flex-row justify-between'>
           <div
@@ -76,9 +76,9 @@ const Home = ({current}) => {
               </h1>
             </div>
           </CSSTransition>
-          <img className="self-center brightness-75 hidden sm:block ml-5 h-[300px] w-[300px] md:h-[400px] md:w-[400px] "
-               src='../src/assets/photo.jpg'
-               alt="photo"/>
+          <div className='self-center brightness-75 hidden sm:block ml-5 h-[300px] w-[300px] md:h-[400px] md:w-[400px]'>
+            <img src='../../assets/photo.jpg' alt="photo"/>
+          </div>
         </div>
         <div className='self-end sm:w-full flex flex-row items-end justify-between sm:my-2 md:my-4'>
           <div className='flex flex-row justify-center'>
