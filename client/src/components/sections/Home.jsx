@@ -14,7 +14,7 @@ const Home = ({current}) => {
 
   return (
     <div
-      className='flex justify-center items-center h-[100vh] overflow-hidden brightness-75 sm:brightness-100 bg-center bg-cover bg-[url(assets/photo.jpg)] sm:bg-none sm:bg-primary'>
+      className='flex justify-center items-center h-[100vh] overflow-hidden brightness-75 sm:brightness-100 bg-center bg-cover bg-[url(../public/assets/photo.jpg)] sm:bg-none sm:bg-primary'>
       <div className='sm:container flex flex-col justify-between h-[80%]'>
         <div className='flex flex-row justify-between'>
           <div
